@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  AdmissionFee: 1
+  AnnualFee: 1
+  CautionMoney: 1
+  TutionFee: 1
+  AlmanacFee: 1
+  TotalFee: 1
+
+two:
+  AdmissionFee: 1
+  AnnualFee: 1
+  CautionMoney: 1
+  TutionFee: 1
+  AlmanacFee: 1
+  TotalFee: 1

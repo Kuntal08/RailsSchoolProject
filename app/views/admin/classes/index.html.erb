@@ -1,0 +1,23 @@
+<h1>Listing Classes</h1>
+<table>
+  <tr>
+    <th>Class</th>
+    <th>Stage</th>
+    <th class="new_link"><%= link_to 'New class', new_admin_class_path %></th>
+  </tr>
+
+  <% @classs.each do |classe| %>
+    <tr>
+      <td><%= classe.classe %></td>
+      <td><%= classe.stage %></td>
+      <td class="link"><%= link_to 'Show', admin_class_path(classe) %></td>
+      <td class="link"><%= link_to 'Edit', edit_admin_class_path(classe) %></td>
+      <td class="link"><%= link_to 'Destroy', admin_class_path(classe),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="nav-back">
+  <%= link_to 'Back', admin_root_path %>
+</div>

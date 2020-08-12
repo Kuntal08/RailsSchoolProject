@@ -1,0 +1,60 @@
+<h2>Fee:</h2>
+<div class="show_class">
+  <div class="info">
+    <div class="heading">
+      <strong>Admission Fee:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.admission_fee %>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="heading">
+      <strong>Annual Fee:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.annual_fee %>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="heading">
+      <strong>Caution Money:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.caution_money %>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="heading">
+      <strong>Tution Fee:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.tution_fee %>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="heading">
+      <strong>Almanac Fee:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.almanac_fee %>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="heading">
+      <strong>Total Fee:</strong>
+    </div>
+    <div class="data">
+      <%= @fee.total_fee %>
+    </div>
+  </div>
+</div>
+
+<div class="nav-back">
+  <%= link_to 'Back', admin_fees_path %>
+</div>

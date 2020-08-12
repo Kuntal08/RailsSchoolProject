@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_from: 2020-08-08
+  date_to: 2020-08-08
+  age_from: 1
+  age_to: 1
+  date_as: 2020-08-08
+
+two:
+  date_from: 2020-08-08
+  date_to: 2020-08-08
+  age_from: 1
+  age_to: 1
+  date_as: 2020-08-08

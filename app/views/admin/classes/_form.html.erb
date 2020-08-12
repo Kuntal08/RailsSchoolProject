@@ -1,0 +1,47 @@
+<%= form_with(model: [:admin, @class], local: true) do |form| %>
+
+  <% if @class.errors.any? %>
+    <div id="error_explanation">
+      <div class="head">
+        <h2>
+          <%= pluralize(@class.errors.count, "error") %> Prohibited
+          this location from being saved:
+        </h2>
+      </div>
+      <div class="error-list">
+        <ul>
+          <% @class.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="input-form">
+    <div class="input-field">
+      <%= form.label :classe %><br>
+      <div class="input-section">
+        <%= form.text_field :classe, placeholder:"  Enter Section Name" %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :stage %><br>
+      <div class="input-section">
+        <%= form.text_field :stage, placeholder:"  Enter Section Name" %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :description %><br>
+      <div class="input-section">
+        <%= form.text_area :description, placeholder:"  Enter Section Name" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>

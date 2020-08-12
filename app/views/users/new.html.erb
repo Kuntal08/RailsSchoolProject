@@ -1,0 +1,41 @@
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="head">
+        <h2>Form is invalid</h2>
+      </div>
+      <div class="error-list">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <h1>Sign Up</h1>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, placeholder:"  Enter Name" %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email, placeholder:"  Enter Email" %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, placeholder:"  Enter Password" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, placeholder:"  Enter Password Confirmation" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Listing fees</h1>
+<table>
+  <tr>
+    <th>Admission Fee</th>
+    <th>Annual Session Fee</th>
+    <th>Caution Money</th>
+    <th>Tution Fee</th>
+    <th>Almanac Fee</th>
+    <th>Total Fee</th>
+    <th class="new_link"><%= link_to 'New Fee Structure', new_admin_fee_path %></th>
+  </tr>
+
+  <% @fees.each do |fee| %>
+    <tr>
+      <td><%= fee.admission_fee %></td>
+      <td><%= fee.annual_fee %></td>
+      <td><%= fee.caution_money %></td>
+      <td><%= fee.tution_fee %></td>
+      <td><%= fee.almanac_fee %></td>
+      <td><%= fee.total_fee %></td>
+      <td class="link"><%= link_to 'Show', admin_fee_path(fee) %></td>
+      <td class="link"><%= link_to 'Edit', edit_admin_fee_path(fee) %></td>
+      <td class="link"><%= link_to 'Destroy', admin_fee_path(fee),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="nav-back">
+  <%= link_to 'Back', admin_root_path %>
+</div>

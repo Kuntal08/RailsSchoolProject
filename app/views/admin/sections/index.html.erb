@@ -1,0 +1,21 @@
+<h1>Listing fees</h1>
+<table>
+  <tr>
+    <th>Section Name</th>
+    <th class="new_link"><%= link_to 'New Section', new_admin_section_path %></th>
+  </tr>
+
+  <% @sections.each do |section| %>
+    <tr>
+      <td><%= section.section_name %></td>
+      <td class="link"><%= link_to 'Show', admin_section_path(section) %></td>
+      <td class="link"><%= link_to 'Edit', edit_admin_section_path(section) %></td>
+      <td class="link"><%= link_to 'Destroy', admin_section_path(section),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="nav-back">
+  <%= link_to 'Back', admin_root_path %>
+</div>

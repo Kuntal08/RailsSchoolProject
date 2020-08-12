@@ -1,0 +1,49 @@
+class Admin::AgesController < ApplicationController#Admin::MasterController
+  def index
+    @ages = Age.all
+  end
+
+  def show
+    @age = Age.find(params[:id])
+  end
+
+  def new
+    @age = Age.new
+  end
+
+  def edit
+    @age = Age.find(params[:id])
+  end
+
+  def create
+    @age = Age.new(age_params)
+
+    if @age.save
+      redirect_to [:admin, @age]
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @age = Age.find(params[:id])
+
+    if @age.update(age_params)
+      redirect_to [:admin, @age]
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @age = Age.find(params[:id])
+    @age.destroy
+
+    redirect_to admin_ages_path
+  end
+
+  private
+    def age_params
+      params.require(:age).permit(:date_from, :date_to, :age_from, :age_to, :date_as)
+    end
+end

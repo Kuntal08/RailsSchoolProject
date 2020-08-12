@@ -1,0 +1,33 @@
+<%= form_with(model: [:admin, @section], local: true) do |form| %>
+
+  <% if @section.errors.any? %>
+    <div id="error_explanation">
+      <div class="head">
+        <h2>
+          <%= pluralize(@section.errors.count, "error") %> Prohibited
+          this location from being saved:
+        </h2>
+      </div>
+      <div class="error-list">
+        <ul>
+          <% @section.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="input-form">
+    <div class="input-field">
+      <%= form.label :section_name %><br>
+      <div class="input-section">
+        <%= form.text_field :section_name, placeholder:"  Enter Section Name" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>
