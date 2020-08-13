@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :payments
     resources :sections
     resources :students
+    get "/payment/:id", to:"payments#send_mail", as:'mail'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,95 @@
+<h2>Student Details:</h2>
+<div class="show_class">
+  <div class="info">
+    <div class="heading">
+      <strong>Student Image:</strong>
+    </div>
+    <div class="data">
+      <%= image_tag(@student.image, style:"width:50%") %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Student File:</strong>
+    </div>
+    <div class="data">
+      <%= link_to "Download File", @student.file, download: '' %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Student Name:</strong>
+    </div>
+    <div class="data">
+      <%= @student.name %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Date of Birth:</strong>
+    </div>
+    <div class="data">
+      <%= @student.birth_date %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Age:</strong>
+    </div>
+    <div class="data">
+      <%= @student.age %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Academic Year:</strong>
+    </div>
+    <div class="data">
+      <%= @student.academic_year %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Father Name:</strong>
+    </div>
+    <div class="data">
+      <%= @student.father_name %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Mother Name:</strong>
+    </div>
+    <div class="data">
+      <%= @student.mother_name %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Address:</strong>
+    </div>
+    <div class="data">
+      <%= @student.address %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Contact Number:</strong>
+    </div>
+    <div class="data">
+      <%= @student.contact %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Class Applied To:</strong>
+    </div>
+    <div class="data">
+      <%= Classe.find(@student.classe_id).classe %>
+    </div>
+  </div>
+</div>
+
+<div class="nav-back">
+  <%= link_to 'Back', admin_students_path %>
+</div>

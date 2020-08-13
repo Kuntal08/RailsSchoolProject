@@ -20,6 +20,20 @@
 
   <div class="input-form">
     <div class="input-field">
+      <%= form.label :classe_id %>
+      <div class="input-section">
+        <%= form.select :classe_id, Classe.all.collect { |c| [c.classe, c.id] } %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :date_as %><br>
+      <div class="input-section">
+        <%= form.date_field :date_as %>
+      </div>
+    </div>
+
+    <div class="input-field">
       <%= form.label :date %><br>
       <div class="input-section input-group input-daterange">
         <%= form.date_field :date_from %>
@@ -40,13 +54,6 @@
       <%= form.label :age_to %><br>
       <div class="input-section">
         <%= form.number_field :age_to %>
-      </div>
-    </div>
-
-    <div class="input-field">
-      <%= form.label :date_as %><br>
-      <div class="input-section">
-        <%= form.date_field :date_as %>
       </div>
     </div>
 

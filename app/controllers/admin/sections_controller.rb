@@ -1,5 +1,5 @@
-class Admin::SectionsController < Admin::MasterController
-
+class Admin::SectionsController < ApplicationController
+  before_action :is_admin?
   def index
     @sections = Section.all
   end

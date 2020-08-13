@@ -1,5 +1,5 @@
-class Admin::ClassesController < Admin::MasterController
-
+class Admin::ClassesController < ApplicationController
+  before_action :is_admin?
   def index
     @classs = Classe.all
   end
@@ -10,15 +10,16 @@ class Admin::ClassesController < Admin::MasterController
 
   def new
     @class = Classe.new
+    @section = Section.all
   end
 
   def edit
     @class = Classe.find(params[:id])
+    @section = Section.all
   end
 
   def create
     @class = Classe.new(classe_params)
-
     if @class.save
       redirect_to [:admin, @class]
     else

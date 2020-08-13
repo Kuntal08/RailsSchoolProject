@@ -1,20 +1,15 @@
-<div class="options">
-  <div class="items">
-    <%= link_to "Sections", admin_sections_path %>
-  </div>
-  <div class="items">
-    <%= link_to "Class", admin_classes_path %>
-  </div>
-  <div class="items">
-    <%= link_to "Fees Structure", admin_fees_path %>
-  </div>
-  <div class="items">
-    <%= link_to "Age Criteria", admin_ages_path %>
-  </div>
-  <div class="items">
-    Student
-  </div>
-  <div class="items">
-    Payment
-  </div>
+<div class="categories">
+  <table>
+    <tr>
+      <th class="link"><%= link_to "Sections", admin_sections_path %></th>
+      <th class="link"><%= link_to "Class", admin_classes_path %></th>
+      <th class="link"><%= link_to "Fees Structure", admin_fees_path %></th>
+      <th class="link"><%= link_to "Age Criteria", admin_ages_path %></th>
+      <th class="link"><%= link_to "Student", admin_students_path %></th>
+      <th class="link"><%= link_to "Payment", admin_payments_path %></th>
+    </tr>
+  </table>
+</div>
+<div class="nav-back">
+  <%= link_to "Back", root_path %>
 </div>

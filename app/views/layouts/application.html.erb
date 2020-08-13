@@ -19,17 +19,31 @@
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
     </div>
-    <% if current_user %>
-      Logged in as <%= current_user.name %>
-      <%= link_to "Sign Out", session_path("current"), method: "delete" %>
-      <%= link_to "Master Table", admin_root_path %>
-    <% else %>
-    <div class="fees_total_fee">
-
+    <div class="navbar">
+      <div class="user-name">
+        <% if current_user %>
+          Logged in as <%= current_user.name %>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Options
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <div class="nav-item"><%= link_to "Sign Out", session_path("current"), method: "delete" %></div>
+          <% if current_user.admin? %>
+            <div class="nav-item"><%= link_to "Master Table", admin_root_path %></div>
+            <div class="nav-item"><%= link_to "Create New Admin", new_user_path %></div>
+          <% else %>
+            <div class="nav-item"><%= link_to "Application Form", admin_students_path %></div>
+          <% end %>
+          <div class="nav-item"><%= link_to "Profile", user_path(current_user.id) %></div>
+        </div>
+        <% else %>
+          <div class="nav-field"><%= link_to "Sign Up", new_user_path %></div>
+          <div class="nav-field"><%= link_to "Sign In", new_session_path %></div>
+        <% end %>
+      </div>
     </div>
-      <%= link_to "Sign Up", new_user_path %>
-      <%= link_to "Sign In", new_session_path %>
-    <% end %>
     <%= yield %>
   </body>
 </html>

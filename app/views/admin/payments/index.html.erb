@@ -1,0 +1,36 @@
+<h1>Listing payment</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Class</th>
+    <th>Academic year</th>
+    <th>Contact No.</th>
+    <th>Mode of Payment</th>
+    <th>Paid Amount(in Rs.)</th>
+    <th>Payment Status</th>
+  </tr>
+
+  <% @payments.each do |payment| %>
+    <tr>
+      <td><%= payment.name %></td>
+      <td><%= payment.email %></td>
+      <td><%= Classe.find(payment.classe_id).classe %></td>
+      <td><%= payment.academic_year %></td>
+      <td><%= payment.contact %></td>
+      <td><%= payment.payment_mode %></td>
+      <td><%= payment.amount %></td>
+      <td><%= payment.status %></td>
+      <td class="link"><%= link_to 'Show', admin_payment_path(payment) %></td>
+      <td class="link"><%= link_to 'Edit', edit_admin_payment_path(payment) %></td>
+      <td class="link"><%= link_to 'Online Invoice', admin_mail_path(payment) %></td>
+      <td class="link"><%= link_to "Print Invoice", admin_payment_path(payment, format: "pdf") %></td>
+      <td class="link"><%= link_to 'Destroy', admin_payment_path(payment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="nav-back">
+  <%= link_to 'Back', admin_root_path %>
+</div>

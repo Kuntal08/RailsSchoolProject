@@ -22,21 +22,31 @@
     <div class="input-field">
       <%= form.label :classe %><br>
       <div class="input-section">
-        <%= form.text_field :classe, placeholder:"  Enter Section Name" %>
+        <%= form.text_field :classe, placeholder:"  Enter Class" %>
       </div>
     </div>
 
     <div class="input-field">
       <%= form.label :stage %><br>
       <div class="input-section">
-        <%= form.text_field :stage, placeholder:"  Enter Section Name" %>
+        <%= form.text_field :stage, placeholder:"  Enter Stage Name" %>
       </div>
     </div>
 
     <div class="input-field">
       <%= form.label :description %><br>
       <div class="input-section">
-        <%= form.text_area :description, placeholder:"  Enter Section Name" %>
+        <%= form.text_area :description, placeholder:"  Enter Description" %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :sections %><br>
+      <div class="input-section">
+        <%= fields_for(@section) do |s| %>
+          <%=  collection_select(:sections, :id, @section, :id, :section_name, {}, {:multiple => true}) %>
+
+        <% end %>
       </div>
     </div>
 

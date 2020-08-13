@@ -1,10 +1,13 @@
-class Admin::AgesController < ApplicationController#Admin::MasterController
+class Admin::AgesController < ApplicationController
+  before_action :is_admin?
+
   def index
     @ages = Age.all
   end
 
   def show
     @age = Age.find(params[:id])
+    @classe = Classe.find(@age.classe_id)
   end
 
   def new
@@ -44,6 +47,6 @@ class Admin::AgesController < ApplicationController#Admin::MasterController
 
   private
     def age_params
-      params.require(:age).permit(:date_from, :date_to, :age_from, :age_to, :date_as)
+      params.require(:age).permit(:classe_id, :date_from, :date_to, :age_from, :age_to, :date_as)
     end
 end

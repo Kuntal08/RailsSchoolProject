@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_144509) do
+ActiveRecord::Schema.define(version: 2020_08_13_182447) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "ages", force: :cascade do |t|
     t.date "date_from"
@@ -20,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_08_08_144509) do
     t.date "date_as"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "classe_id"
+    t.index ["classe_id"], name: "index_ages_on_classe_id"
   end
 
   create_table "classes", force: :cascade do |t|
@@ -45,6 +68,27 @@ ActiveRecord::Schema.define(version: 2020_08_08_144509) do
     t.string "section_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "classe_id"
+    t.index ["classe_id"], name: "index_sections_on_classe_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.date "birth_date"
+    t.integer "age"
+    t.integer "academic_year"
+    t.string "father_name"
+    t.string "mother_name"
+    t.text "address"
+    t.integer "contact"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "classe_id"
+    t.string "email"
+    t.string "payment_mode"
+    t.integer "amount"
+    t.string "status"
+    t.index ["classe_id"], name: "index_students_on_classe_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +97,11 @@ ActiveRecord::Schema.define(version: 2020_08_08_144509) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ages", "classes", column: "classe_id"
+  add_foreign_key "sections", "classes", column: "classe_id"
+  add_foreign_key "students", "classes", column: "classe_id"
 end

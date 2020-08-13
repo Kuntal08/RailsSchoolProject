@@ -1,0 +1,96 @@
+<%= form_with(model: [:admin, @payment], local: true) do |form| %>
+
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <div class="head">
+        <h2>
+          <%= pluralize(@payment.errors.count, "error") %> Prohibited
+          this location from being saved:
+        </h2>
+      </div>
+      <div class="error-list">
+        <ul>
+          <% @payment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="show_class">
+    <div class="info">
+      <div class="heading">
+        <strong>Student:</strong>
+      </div>
+      <div class="data">
+        <%= @payment.name %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="heading">
+        <strong>Class:</strong>
+      </div>
+      <div class="data">
+        <%= Classe.find(@payment.classe_id).classe %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="heading">
+        <strong>Academic Year:</strong>
+      </div>
+      <div class="data">
+        <%= @payment.academic_year %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="heading">
+        <strong>Address:</strong>
+      </div>
+      <div class="data">
+        <%= @payment.address %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="heading">
+        <strong>Contact:</strong>
+      </div>
+      <div class="data">
+        <%= @payment.contact %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="heading">
+        <strong>Email:</strong>
+      </div>
+      <div class="data">
+        <%= @payment.email %>
+      </div>
+    </div>
+  </div>
+  <div class="input-form">
+    <div class="input-field">
+      <%= form.label :payment_mode %><br>
+      <div class="input-section">
+        <%= form.select( :payment_mode, Student::MODE_LIST ) %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :amount %><br>
+      <div class="input-section">
+        <%= form.number_field :amount, placeholder:"  Enter Amount to be paid(in Rs.)" %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= form.label :status %><br>
+      <div class="input-section">
+        <%= form.select( :status, Student::STATUS_LIST ) %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>

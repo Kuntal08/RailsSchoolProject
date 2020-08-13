@@ -1,5 +1,5 @@
-class Admin::FeesController < Admin::MasterController
-
+class Admin::FeesController < ApplicationController
+  before_action :is_admin?
   def index
     @fees = Fee.all
   end

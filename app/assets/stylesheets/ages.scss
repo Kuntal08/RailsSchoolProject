@@ -1,3 +1,108 @@
 // Place all the styles related to the Ages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+td, th {
+  text-align: left;
+  padding: 10px;
+}
+
+th {
+    background: #8c8c8c;
+    color: #FFFFFF;
+}
+
+.new_link a {
+    text-decoration: none;
+    color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+tr:nth-child(odd) {
+    background: #c9cccf;
+}
+.new_link {
+    background: #004d99;
+    text-align: center;
+}
+.new_link:hover {
+  background:#00264d;
+}
+.link {
+    background: #cce6ff;
+    text-align: center;
+}
+.link a {
+    text-decoration: none;
+}
+.link:hover {
+    background: #e6f2ff;
+}
+
+.data_img img {
+    width: 100%;
+}
+
+.input-form {
+    border: 3px solid #cccccc;
+    padding: 20px;
+    width: 55%;
+    margin: auto;
+    margin-top: 25px;
+    box-shadow: 10px 35px 60px 10px #b3b3b3;
+}
+.input-field {
+    padding: 10px 20px;
+}
+
+input#school_image {
+    background: none;
+}
+
+.input-section input {
+    width: 100%;
+    height: 24px;
+    border: none;
+    background: #e6e6e6;
+}
+.input-section textarea {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #e6e6e6;
+}
+.input-section select {
+    width: 50%;
+    height: 20px;
+    border: none;
+    background: #e6e6e6;
+}
+
+.show_class {
+    border: 2px solid #404040;
+    background: #F2F2F2;
+    border-radius: 5px;
+    margin: auto;
+    width: 70%;
+    padding: 30px;
+    margin-top: 5%;
+}
+
+.info {
+    padding: 10px;
+}
+
+.info .data {
+    padding: 8px;
+    background: #B3E6FF;
+    color: #000000;
+}

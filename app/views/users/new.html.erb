@@ -16,7 +16,13 @@
   <% end %>
 
   <div class="form-field">
-    <h1>Sign Up</h1>
+    <% if session[:user_id] != nil %>
+      <% if current_user.admin? %>
+        <h1>New User</h1>
+      <% end %>
+    <% else %>
+      <h1>Sign Up</h1>
+    <% end %>
 
     <div class="field">
       <%= f.label :name %><br />
