@@ -14,4 +14,6 @@ class Student < ApplicationRecord
   validates :address, presence: true
   validates :contact, presence: true
   validates :email, presence: true
+  validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :file, attached: true
 end

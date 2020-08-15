@@ -24,14 +24,23 @@
         <% if current_user %>
           Logged in as <%= current_user.name %>
       </div>
-      <div class="dropdown">
+        <% if current_user.admin? %>
+        <div class="navbar-content">
+          <div class="link"><%= link_to "Sections", admin_sections_path %></div>
+          <div class="link"><%= link_to "Class", admin_classes_path %></div>
+          <div class="link"><%= link_to "Fees Structure", admin_fees_path %></div>
+          <div class="link"><%= link_to "Age Criteria", admin_ages_path %></div>
+          <div class="link"><%= link_to "Student", admin_students_path %></div>
+          <div class="link"><%= link_to "Payment", admin_payments_path %></div>
+        </div>
+        <% end %>
+        <div class="dropdown">
         <button class="dropbtn">Options
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
           <div class="nav-item"><%= link_to "Sign Out", session_path("current"), method: "delete" %></div>
           <% if current_user.admin? %>
-            <div class="nav-item"><%= link_to "Master Table", admin_root_path %></div>
             <div class="nav-item"><%= link_to "Create New Admin", new_user_path %></div>
           <% else %>
             <div class="nav-item"><%= link_to "Application Form", admin_students_path %></div>

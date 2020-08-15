@@ -38,14 +38,21 @@ tr:nth-child(odd) {
   background:#00264d;
 }
 .link {
-    background: #cce6ff;
     text-align: center;
+    padding: 14px 10px;
 }
 .link a {
     text-decoration: none;
+    color: #FFFFFF;
+}
+.link a:hover{
+    background-color: #e6e6e6;
+    color: #000000;
 }
 .link:hover {
-    background: #e6f2ff;
+    text-decoration: none;
+    background: #e6e6e6;
+    color: #000000;
 }
 
 .data_img img {

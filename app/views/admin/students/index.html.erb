@@ -1,4 +1,9 @@
 <h1>Listing student</h1>
+<% if current_user.admin? %>
+  <div class="add-button">
+    <%= link_to "Add New Student", new_admin_student_path %>
+  </div>
+<% end %>
 <table>
   <tr>
     <th>Name</th>
@@ -10,9 +15,6 @@
     <th>Contact No.</th>
     <th>Class Applied To</th>
     <th>Payment Status</th>
-    <% if current_user.admin? %>
-      <th class="new_link"><%= link_to 'New student', new_admin_student_path %></th>
-    <% end %>
 
   </tr>
 
@@ -27,21 +29,21 @@
       <td><%= student.contact %></td>
       <td><%= Classe.find(student.classe_id).classe %></td>
       <td><%= student.status %></td>
-      <td class="link"><%= link_to 'Show', admin_student_path(student) %></td>
+      <td class="feature"><%= link_to 'Show', admin_student_path(student) %></td>
       <% if current_user.admin? %>
-        <td class="link"><%= link_to 'Edit', edit_admin_student_path(student) %></td>
-        <td class="link"><%= link_to 'Destroy', admin_student_path(student),
+        <td class="feature"><%= link_to 'Edit', edit_admin_student_path(student) %></td>
+        <td class="feature"><%= link_to 'Destroy', admin_student_path(student),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
       <% else %>
-        <td class="link"><%= link_to 'Proceed To Pay', edit_admin_student_path(student) %></td>
+        <td class="feature"><%= link_to 'Proceed To Pay', edit_admin_student_path(student) %></td>
       <% end %>
     </tr>
   <% end %>
 </table>
 <% if current_user.admin %>
   <div class="nav-back">
-    <%= link_to 'Back', admin_root_path %>
+    <%= link_to 'Back', root_path %>
   </div>
 <% else %>
   <div class="nav-back">

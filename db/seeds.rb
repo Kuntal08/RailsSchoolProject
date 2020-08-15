@@ -42,11 +42,13 @@ Fee.create([{
   }])
 
 Section.create([{
-  section_name:"A"
+  section_name:"A",
+  classe_id:"2"
   }])
 
 Section.create([{
-  section_name:"B"
+  section_name:"B",
+  classe_id:"3"
   }])
 
 Student.create([{

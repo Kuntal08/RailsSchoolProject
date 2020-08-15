@@ -19,6 +19,12 @@ class Admin::SectionsController < ApplicationController
   def create
     @section = Section.new(section_params)
 
+  #  params[:section][:classe_id].each do |section|
+  #    if !section.empty?
+  #      @section.build(:classe_id => section)
+  #    end
+  #  end
+
     if @section.save
       redirect_to [:admin, @section]
     else
@@ -45,7 +51,7 @@ class Admin::SectionsController < ApplicationController
 
   private
     def section_params
-      params.require(:section).permit(:section_name)
+      params.require(:section).permit(:section_name, :classe_id)
     end
 
 end

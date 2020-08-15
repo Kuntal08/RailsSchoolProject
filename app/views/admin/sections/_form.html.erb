@@ -26,6 +26,14 @@
       </div>
     </div>
 
+    <div class="input-field">
+      <%= form.label :classe_id %><br>
+      <div class="input-section">
+
+        <%= form.collection_select(:classe_id, Classe.all, :id, :classe, {}, {:multiple => true}) %>
+      </div>
+    </div>
+
     <div class="actions">
       <%= form.submit %>
     </div>

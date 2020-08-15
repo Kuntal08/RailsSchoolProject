@@ -1,4 +1,7 @@
 <h1>Listing Age Criteria</h1>
+<div class="add-button">
+  <%= link_to "Add New Age", new_admin_age_path %>
+</div>
 <table>
   <tr>
     <th>Class</th>
@@ -7,7 +10,6 @@
     <th>Age From</th>
     <th>Age To</th>
     <th>Date As On</th>
-    <th class="new_link"><%= link_to 'New Age Criteria', new_admin_age_path %></th>
   </tr>
 
   <% @ages.each do |age| %>
@@ -18,14 +20,14 @@
       <td><%= age.age_from %></td>
       <td><%= age.age_to %></td>
       <td><%= age.date_as %></td>
-      <td class="link"><%= link_to 'Show', admin_age_path(age) %></td>
-      <td class="link"><%= link_to 'Edit', edit_admin_age_path(age) %></td>
-      <td class="link"><%= link_to 'Destroy', admin_age_path(age),
+      <td class="feature"><%= link_to 'Show', admin_age_path(age) %></td>
+      <td class="feature"><%= link_to 'Edit', edit_admin_age_path(age) %></td>
+      <td class="feature"><%= link_to 'Destroy', admin_age_path(age),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
 <div class="nav-back">
-  <%= link_to 'Back', admin_root_path %>
+  <%= link_to 'Back', root_path %>
 </div>

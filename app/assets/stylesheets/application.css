@@ -24,7 +24,7 @@
      text-align: center;
      padding-top: 15px;
  }
- 
+
  h2 {
     text-align: center;
     padding-top: 25px;
@@ -34,6 +34,7 @@
    overflow: hidden;
    background-color: #333333;
    font-family: Arial;
+   display: flex;
  }
 
  /* Links inside the navbar */
@@ -44,13 +45,16 @@
    text-align: center;
    padding: 14px 16px;
    text-decoration: none;
+   background-color: #333333;
+
  }
 
  /* The dropdown container */
  .dropdown {
    float: right;
-   overflow: hidden;
-   right: 10px;
+   /*overflow: hidden;*/
+   right: 0px;
+   position: absolute;
 
  }
 
@@ -64,6 +68,12 @@
    background-color: inherit;
    font-family: inherit; /* Important for vertical align on mobile phones */
    margin: 0; /* Important for vertical align on mobile phones */
+ }
+
+ .navbar-content{
+   display: flex;
+   position: absolute;
+   right: 90px;
  }
 
  /* Add a red background color to navbar links on hover */
@@ -86,7 +96,7 @@
  .nav-item a {
    float: none;
    color: black;
-   padding: 12px 16px;
+   padding: 12px 10px;
    text-decoration: none;
    display: block;
    text-align: left;
@@ -239,3 +249,40 @@
      background: #00004D;
      color: #E6E6FF;
  }
+
+ .feature {
+    background: #cce6ff;
+    text-align: center;
+}
+ .feature a {
+   text-decoration: none;
+}
+.feature:hover {
+   background: #e6f2ff;
+
+   text-align: center;
+}
+.feature a:hover {
+  text-decoration: none;
+  color: #000d1a;
+}
+
+.add-button {
+    text-align: center;
+    margin-top: 25px;
+}
+.add-button a {
+    text-decoration: none;
+    padding: 12px;
+    background: #cce6ff;
+    color: #000000;
+    border-radius: 5px;
+}
+
+.add-button a:hover{
+    text-decoration: none;
+    padding: 12px;
+    background: #001a33;
+    color: #FFFFFF;
+    border-radius: 5px;
+}

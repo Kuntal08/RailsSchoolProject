@@ -38,6 +38,8 @@ gem 'prawn'
 gem 'prawn-table', '~> 0.2.2'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
+gem 'active_storage_validations'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
