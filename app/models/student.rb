@@ -2,6 +2,7 @@ class Student < ApplicationRecord
   has_one_attached :image
   has_one_attached :file
   belongs_to :classe
+  belongs_to :user
 
   MODE_LIST = ["Cash", "Cheque", "Draft", "Credit Card", "Debit Card", "Net Banking"]
   STATUS_LIST = ["Pending", "Processed", "Approved", "Failed"]
@@ -12,8 +13,9 @@ class Student < ApplicationRecord
   validates :father_name, presence: true
   validates :mother_name, presence: true
   validates :address, presence: true
-  validates :contact, presence: true
+  validates :contact, presence: true, length: { is: 10 }
   validates :email, presence: true
   validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
   validates :file, attached: true
+
 end

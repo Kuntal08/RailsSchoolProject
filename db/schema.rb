@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_182447) do
+ActiveRecord::Schema.define(version: 2020_09_02_091253) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_08_13_182447) do
     t.integer "total_fee"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "classe_id"
+    t.index ["classe_id"], name: "index_fees_on_classe_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -88,7 +90,9 @@ ActiveRecord::Schema.define(version: 2020_08_13_182447) do
     t.string "payment_mode"
     t.integer "amount"
     t.string "status"
+    t.integer "user_id"
     t.index ["classe_id"], name: "index_students_on_classe_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_08_13_182447) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ages", "classes", column: "classe_id"
+  add_foreign_key "fees", "classes", column: "classe_id"
   add_foreign_key "sections", "classes", column: "classe_id"
   add_foreign_key "students", "classes", column: "classe_id"
+  add_foreign_key "students", "users"
 end

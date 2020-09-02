@@ -1,5 +1,5 @@
 class Admin::PaymentsController < ApplicationController#Admin::MasterController
-#  before_action :is_admin?
+  before_action :is_admin?
   def index
     @payments = Student.all
   end
@@ -41,7 +41,8 @@ class Admin::PaymentsController < ApplicationController#Admin::MasterController
 
   def send_mail
     @student = Student.find(params[:id])
-    UserMailer.payment_invoice(@student).deliver_now
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    UserMailer.payment_invoice(@student, @current_user).deliver_now
     redirect_to admin_payments_path, notice: "Email Sent"
   end
 

@@ -45,6 +45,6 @@ class Admin::FeesController < ApplicationController
 
   private
     def fee_params
-      params.require(:fee).permit(:admission_fee, :annual_fee, :caution_money, :tution_fee, :almanac_fee, :total_fee)
+      params.require(:fee).permit(:classe_id, :admission_fee, :annual_fee, :caution_money, :tution_fee, :almanac_fee, :total_fee)
     end
 end

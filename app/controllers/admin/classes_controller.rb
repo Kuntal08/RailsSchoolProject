@@ -29,7 +29,6 @@ class Admin::ClassesController < ApplicationController
 
   def update
     @class = Classe.find(params[:id])
-
     if @class.update(classe_params)
       redirect_to [:admin, @class]
     else

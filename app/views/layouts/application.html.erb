@@ -43,7 +43,8 @@
           <% if current_user.admin? %>
             <div class="nav-item"><%= link_to "Create New Admin", new_user_path %></div>
           <% else %>
-            <div class="nav-item"><%= link_to "Application Form", admin_students_path %></div>
+            <div class="nav-item"><%= link_to "Application Form", new_admin_student_path %></div>
+            <div class="nav-item"><%= link_to "Dasboard", admin_students_path %></div>
           <% end %>
           <div class="nav-item"><%= link_to "Profile", user_path(current_user.id) %></div>
         </div>

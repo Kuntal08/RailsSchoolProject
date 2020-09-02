@@ -5,7 +5,11 @@
       <strong>Student Image:</strong>
     </div>
     <div class="data">
-      <%= image_tag(@student.image, style:"width:50%") %>
+      <% if @student.image.attached? %>
+        <%= image_tag(@student.image, style:"width:25%") %>
+      <% else %>
+        <p>NULL</p>
+      <% end %>
     </div>
   </div>
   <div class="info">
@@ -13,7 +17,11 @@
       <strong>Student File:</strong>
     </div>
     <div class="data">
-      <%= link_to "Download File", @student.file, download: '' %>
+      <% if @student.image.attached? %>
+        <%= link_to "Download File", @student.file, download: '' %>
+      <% else %>
+        <p>NULL</p>
+      <% end %>
     </div>
   </div>
   <div class="info">
@@ -86,6 +94,22 @@
     </div>
     <div class="data">
       <%= Classe.find(@student.classe_id).classe %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Payment Mode:</strong>
+    </div>
+    <div class="data">
+      <%= @student.payment_mode %>
+    </div>
+  </div>
+  <div class="info">
+    <div class="heading">
+      <strong>Amount:</strong>
+    </div>
+    <div class="data">
+      <%= @student.amount %>
     </div>
   </div>
 </div>

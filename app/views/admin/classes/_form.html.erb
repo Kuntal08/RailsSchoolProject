@@ -41,12 +41,9 @@
     </div>
 
     <div class="input-field">
-      <%= form.label :sections %><br>
+      <%= form.label :classe_id %><br>
       <div class="input-section">
-        <%= fields_for(@section) do |s| %>
-          <%=  collection_select(:sections, :id, @section, :id, :section_name, {}, {:multiple => true}) %>
-
-        <% end %>
+        <%= form.select :classe_id, Section.all.collect { |c| [c.section_name, c.id] } %>
       </div>
     </div>
 

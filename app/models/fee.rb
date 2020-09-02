@@ -1,4 +1,6 @@
 class Fee < ApplicationRecord
+  belongs_to :classe
+
   validates :admission_fee, presence: true
   validates :annual_fee, presence: true
   validates :caution_money, presence: true

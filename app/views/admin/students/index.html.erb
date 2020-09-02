@@ -14,8 +14,11 @@
     <th>Mother Name</th>
     <th>Contact No.</th>
     <th>Class Applied To</th>
+    <% if !current_user.admin? %>
+      <th>Mode of Payment</th>
+      <th>Amount</th>
+    <% end %>
     <th>Payment Status</th>
-
   </tr>
 
   <% @students.each do |student| %>
@@ -28,6 +31,10 @@
       <td><%= student.mother_name %></td>
       <td><%= student.contact %></td>
       <td><%= Classe.find(student.classe_id).classe %></td>
+      <% if !current_user.admin? %>
+        <td><%= student.payment_mode %></td>
+        <td><%= student.amount %></td>
+      <% end %>
       <td><%= student.status %></td>
       <td class="feature"><%= link_to 'Show', admin_student_path(student) %></td>
       <% if current_user.admin? %>
@@ -36,7 +43,9 @@
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
       <% else %>
-        <td class="feature"><%= link_to 'Proceed To Pay', edit_admin_student_path(student) %></td>
+        <% if student.status !="Approved" && student.status !="Failed" %>
+          <td class="feature"><%= link_to 'Update Application', edit_admin_student_path(student) %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>

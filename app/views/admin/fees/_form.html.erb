@@ -20,6 +20,13 @@
 
   <div class="input-form">
     <div class="input-field">
+      <%= form.label :classe_id %><br>
+      <div class="input-section">
+        <%= form.select :classe_id, Classe.all.collect { |c| [c.classe, c.id] } %>
+      </div>
+    </div>
+
+    <div class="input-field">
       <%= form.label :admission_fee %><br>
       <div class="input-section">
         <%= form.text_field :admission_fee, placeholder:"  Enter Admission Fee(in Rs.)" %>

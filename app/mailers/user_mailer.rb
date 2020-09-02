@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.payment_invoice.subject
   #
-  def payment_invoice(user)
+  def payment_invoice(user, admin)
     @user = user
+    @admin = admin
 
-    mail to: user.email, subject: "Payment Invoice"
+    mail to: [user.email, admin.email], subject: "Payment Invoice"
   end
 end

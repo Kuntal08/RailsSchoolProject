@@ -70,20 +70,6 @@
   </div>
   <div class="input-form">
     <div class="input-field">
-      <%= form.label :payment_mode %><br>
-      <div class="input-section">
-        <%= form.select( :payment_mode, Student::MODE_LIST ) %>
-      </div>
-    </div>
-
-    <div class="input-field">
-      <%= form.label :amount %><br>
-      <div class="input-section">
-        <%= form.number_field :amount, placeholder:"  Enter Amount to be paid(in Rs.)" %>
-      </div>
-    </div>
-
-    <div class="input-field">
       <%= form.label :status %><br>
       <div class="input-section">
         <%= form.select( :status, Student::STATUS_LIST ) %>

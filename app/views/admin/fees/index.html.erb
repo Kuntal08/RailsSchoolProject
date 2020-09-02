@@ -4,6 +4,7 @@
 </div>
 <table>
   <tr>
+    <th>Class</th>
     <th>Admission Fee(in Rs.)</th>
     <th>Annual Session Fee(in Rs.)</th>
     <th>Caution Money(in Rs.)</th>
@@ -14,6 +15,7 @@
 
   <% @fees.each do |fee| %>
     <tr>
+      <td><%= Classe.find(fee.classe_id).classe %></td>
       <td><%= fee.admission_fee %></td>
       <td><%= fee.annual_fee %></td>
       <td><%= fee.caution_money %></td>
